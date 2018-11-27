@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BES xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BES.xsd">
+	<Analysis>
+		<Title>Federal Public Key Infrastructure Root Certificate Detection (FPKI)</Title>
+		<Description><![CDATA[<SPAN lang=EN>
+<P dir=ltr align=left>Description<BR>This analyses will detect the Federal Public Key Infrastructure Root Certificate and report back the sha1 if it is available. This can be used to identify the FPKI’s root certificates that must be redistributed and validate that they have correctly been repositioned.<BR><BR><STRONG>Relevance Definition</STRONG><BR>windows of operating system AND exist key "HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry OR exist key "HKLM\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C" of registry OR exist key "HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry OR exist key "HKLM\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry　<BR>　　　<BR>　　 <BR><STRONG>Action Notes</STRONG><BR>This analyses will identify and report based on the following keys.</P>
+<UL>
+<P dir=ltr align=left>
+<LI>HKLM:\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\　 　 　 　 　 　 　 　 　 　 　　 　 　 　 　 　 　 　 　 　　 
+<P></P>
+<P dir=ltr align=left></P>
+<LI>HKLM:\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\　 　　 　 　 　 　 　 　 　 　 　 　 
+<P></P>
+<P dir=ltr align=left></P>
+<LI>HKLM:\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\　 　 　 　 　　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　　 
+<P></P>
+<P dir=ltr align=left></P>
+<LI>HKLM:\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\　　 
+<P></P></LI></UL><STRONG>
+<P dir=ltr align=left>Release Management</STRONG><B><BR></B>R1 initial release, released 11/2/2018 </P>
+<P dir=ltr align=left><BR><STRONG>Support Status and POC</STRONG><BR>Not officially supported<BR>POC: ELMS Support Team</P></SPAN>]]></Description>
+		<Relevance>windows of operating system</Relevance>
+		<Relevance>exist key "HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry OR exist key "HKLM\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C" of registry OR exist key "HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry OR exist key "HKLM\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry</Relevance>
+		<Source>Internal</Source>
+		<SourceReleaseDate>2018-11-02</SourceReleaseDate>
+		<MIMEField>
+			<Name>x-fixlet-modification-time</Name>
+			<Value>Fri, 02 Nov 2018 13:50:28 +0000</Value>
+		</MIMEField>
+		<Domain>BESC</Domain>
+		<Property Name="FPKI: Sha1" ID="1" EvaluationPeriod="P30D">if (exists key "HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry AND exists key "HKLM\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry) then (sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry as string); sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry as string)) else if (exist key "HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry AND exist key "HKLM\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C" of registry) then (sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry as string); sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C" of registry as string)) else if (exist key "HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry) then (sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry as string)) else if (exist key "HKLM\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry) then (sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry as string)) else if (exist key "HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry) then (sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry as string)) else if (exist key "HKLM\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C" of registry) then (sha1 of (value whose (name of it is "Blob") of key "HKLM\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C" of registry as string)) else "Present - Sha1 Unavailable"</Property>
+	</Analysis>
+</BES>
