@@ -66,7 +66,7 @@ Use one of these options to verify COMMON has been redistributed to Windows end-
 - Click the **Add** button on the toolbar.
 - Select and enter data as described below, depending on operating system versions in your environment.
 
-     Windows 32 Bit Versions
+     **Windows 32 Bit Versions**
      ```
      Root  Key: HKLM
      Key: SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1
@@ -74,7 +74,7 @@ Use one of these options to verify COMMON has been redistributed to Windows end-
      Attribute Name: Custom Data – FCPCAWin32 – Certificate
      ```
 
-     Windows 64 Bit Versions
+     **Windows 64 Bit Versions**
      ```
      Root  Key: HKLM
      Key: SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1
@@ -85,21 +85,18 @@ Use one of these options to verify COMMON has been redistributed to Windows end-
 3. Create a query for the custom data registry item
 - Expand **Network View** > **Queries**
 - Right click **My Queries** > **New Query**
-- Enter a query name, for example, "FCPCA Verification: Win32"
-- Under **Machine Component** expand and select: **Computer** > **Custom Data** > **FCPCAWin32**
+- Enter a query *name*, for example, "FCPCA Verification: Win32"
+- Under **Machine Component** expand and select: **Computer** > **Custom Data** > **FCPCAWin32** or **FCPCAWin64**, depending on OS type
 - For the *Boolean* option select **Exists**
-- In the Displayed Scanned Values you should see the Registry Value for BLOB: 
+- In the **Displayed Scanned Values** you should see the Registry Value for **BLOB**: 
 ```
-0400000001000000100000008c42b6360dd024ce4cb1ba06d26a6bc90f0000000100000020000000375dc361146cfbdd26f82cbf8a4c1a173c9b6a11ac61dfe4c28cac281888ed22140000000100000014000000ad0c7a755ce5f398c479980eac28fd97f4e702fc19000000010000001000000093ee7e01c999df57176c2c (truncated value)
+0400000001000000100000008c42b6360dd024ce4cb1ba06d26a6bc90f0000000100000020000000375dc361146cfbdd26f82cbf8a4c1a173c9b6a11ac61dfe4c28cac281888ed22140000000100000014000000ad0c7a755ce5f398c479980eac28fd97f4e702fc19000000010000001000000093ee7e01c999df57176c2c (output trimmed due to length)
 ```
 - Select above value and then click **Insert**
-- Add fields to the query by clicking **Select Columns: Machine Component** and select:
-- **Computer** > **Display Name** (Alias Device Name) and **Add**
-- **Computer** > **OS**, **Version** and **Add**
-- **Computer** > **Custom Data**, **FCPCA** and **Add**
+- Add result fields to the query by clicking **Select Columns: Machine Component**, and then *Add* for relevant attributes (e.g., Display Name, OS, etc.):
 
 4. Run the custom query by double clicking on it.
-- Results will look similar to the following results.
+- If COMMON has been succesfully redistributed, results will look similar to the image below.
 ![Sample Output]({{site.baseurl}}/img/landesk-results.jpg){:style="width:70%;"}
 
 
