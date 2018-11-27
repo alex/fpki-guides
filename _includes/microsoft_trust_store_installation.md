@@ -4,6 +4,7 @@ To redistribute COMMON, follow these procedures:
 1. [Download a Copy of COMMON](#download-a-copy-of-common)
 1. [Verify Your Copy of COMMON](#verify-your-copy-of-common)
 1. [Redistribute COMMON](#redistribute-common)
+1. [Verify Redistribution of COMMON](#verify-redistribution-of-common)
 
 ### Download a Copy of COMMON
 
@@ -152,4 +153,8 @@ For unmanaged devices, use the following manual procedures:
 1. Select *Finish* to complete the import. You'll see the message, *the import was successful*.
 
 **Note:** If multiple users share a device, administrators should run **certlm.msc** to concurrently update the certificate stores of those accounts vs. updating each account separately.
+
+
+### Verify Redistribution of COMMON
+{% include microsoft_trust_store_verification.md %}
 
