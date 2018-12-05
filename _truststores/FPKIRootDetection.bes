@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BES xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BES.xsd">
+	<Analysis>
+		<Title>Federal PKI Root Detection Analysis</Title>
+		<Description><![CDATA[<P>This analysis will detect whether COMMON has been redistributed via GPO or Active Directory.</P>
+<P>Depending on how COMMON is redistributed to end-points, one of two pairs of registry keys is created:</P>
+<P><STRONG>AD Distribution</STRONG><BR>- HKLM:\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\<BR>- HKLM:\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\</P>
+<P><STRONG>GPO Distribution</STRONG><BR>- HKLM:\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\<BR>- HKLM:\SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1\</P>
+<P>Results: If one of these pairs is detected, the analysis will return a value of "TRUE".</P>]]></Description>
+		<Relevance>true</Relevance>
+		<Source>Internal</Source>
+		<SourceReleaseDate>2018-11-30</SourceReleaseDate>
+		<MIMEField>
+			<Name>x-fixlet-modification-time</Name>
+			<Value>Fri, 30 Nov 2018 19:20:48 +0000</Value>
+		</MIMEField>
+		<Domain>BES </Domain>
+		<Property Name="Has COMMON Been Redistributed?" ID="1" EvaluationPeriod="P30D">((exists key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry) AND (exists key "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\CA\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry)) OR   ((exists key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry) AND (exists key "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\CA\Certificates\905F942FD9F28F679B378180FD4F846347F645C1" of registry))</Property>
+	</Analysis>
+</BES>
+
+
