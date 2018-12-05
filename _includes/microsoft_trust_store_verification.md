@@ -58,6 +58,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
      **Windows 32 Bit Versions**
      
      GPO Distribution
+     
           ```
           Root  Key: HKLM
           Key: SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1
@@ -66,6 +67,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
           ```
           
      certutil Distribution
+     
           ```
           Root  Key: HKLM
           Key: SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1
@@ -76,6 +78,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
      **Windows 64 Bit Versions**
      
      GPO Distribution
+     
           ```
           Root  Key: HKLM
           Key: SOFTWARE\WOW6432Node\Policies\Microsoft\SystemCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1
@@ -84,6 +87,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
           ```
           
       certutil Distribution
+      
           ```
           Root  Key: HKLM
           Key: SOFTWARE\WOW6432Node\Microsoft\EnterpriseCertificates\Root\Certificates\905F942FD9F28F679B378180FD4F846347F645C1
@@ -95,7 +99,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
 - From the left-hand navigation, expand **Network View** > **Queries**
 - Right click **My Queries** and select **New Query**
 - Enter a query *name*, for example, "FCPCA Verification: Win32 Machines"
-- Under **Machine Component** expand **Computer** > **Custom Data** and select the registry items relevant to the operating system types and method of redistributing COMMON within your environment.
+- Under **Machine Component**, expand **Computer** > **Custom Data** and select the registry items relevant to the operating system types and method of COMMON's redistribution within your environment.
 - For the **Boolean** option select **Exists**
 - In the **Displayed Scanned Values** option you should see a registry value for **BLOB**, click **Insert**
 - Add additional desired result fields (e.g., Display Name, OS, etc.) to the query by clicking **Select Columns: Machine Component**, and then **Add**
@@ -111,9 +115,9 @@ Use one of these options to verify COMMON has been redistributed to Windows work
 
 2. Navigate to **Trusted Root Certification Authorities** -> **Certificates**. 
 
-3. You may see 2 (or more) copies of COMMON, depending on how they were distributed. The screenshot below lists 3 entries for COMMON:
+3. You **may** see multiple copies of COMMON, depending on how the certificate is distributed within your environment. For example, the screenshot below lists 3 entries for COMMON:
 * The first entry (“dashed” border) is from the Microsoft Certificate Trust List (CTL) (i.e., certificate store). Microsoft-distributed copies show multiple **Intended Purposes** values and a **Friendly Name** of *U.S. Government Common Policy*.
-* The remaining two entries (examples of enterprise-distributed copies) result from following the procedures in this Playbook. Enterprise-distributed copies show an **Intended Purposes** value of *ALL* and a **Friendly Name** of *None*.
+* The remaining two entries (examples of enterprise-distributed copies) result from following the procedures in this Playbook. Enterprise-distributed copies show an **Intended Purposes** value of *ALL* and a **Friendly Name** of *None*. Verify at least one entry for COMMON appears similar to this.
 
 ![Sample Steps]({{site.baseurl}}/img/verify_trust.png){:style="width:85%;"}
 
