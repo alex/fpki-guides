@@ -46,8 +46,8 @@ These Windows versions will be affected:
 | **Personal Computer** |  **Server** | 
 | :-------- |  :-------- | 
 | Windows 10  | Windows Server 2016 |
-| Windows 8.1   | Windows Server 2012 R2 |
-| Windows 8   | Windows Server 2008 R2 |
+| Windows 8.1   | Windows Server 2012/2012 R2 |
+| Windows 8   | Windows Server 2008/2008 R2 |
 | Windows 7   | |
 | Windows Vista   | | 
 
