@@ -16,7 +16,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
 2. Verify that the SHA-256 hash of the .bes file matches this one:
 
      ```
-     3ef0277f9edffc965baa0576c2626343f8e2d0a3d37da4e73595ffb06b6116ee
+     390f8e6d35412b4e2a818897bdddbfeeff5ce4c99301cd6c170bc3d8610ada36
      ```
 
      _Sample procedure using certutil_:
@@ -35,7 +35,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
 - Select the **Create in Site** drop-down selection and choose which site you'd like to import the analysis to (e.g., "Master Action Site"
 - Click **Okay**
 
-3. Click **Analyses** from the left-hand navigation to reveal imported analysis files. Right click the *Federal PKI Root Detection Analysis* entry and click **Activate Globally**, if the analysis is not activated by default.
+3. Click **Analyses** from the left-hand navigation to reveal imported analysis files. Right click the *Federal Common Policy CA Redistribution Detection* entry and click **Activate Globally**, if the analysis is not activated by default.
 
 **View Analysis Results Using the Console**
 
@@ -43,7 +43,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
 
 2. Click **Analyses** from the left-hand navigation to reveal imported analysis files.
 
-3. Select the *Federal PKI Root Detection Analysis* entry, and click the **Results** tab.
+3. Select the *Federal Common Policy CA Redistribution Detection* entry, and click the **Results** tab.
 
 4. Review the analysis results. If COMMON was successfully redistributed to a Windows workstations and device, the *Has COMMON Been Redistributed?* column will present **True**, as pictured below. 
 ![Sample Output]({{site.baseurl}}/img/bigfix-results.jpg){:style="width:70%;"}
