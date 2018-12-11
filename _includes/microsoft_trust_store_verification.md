@@ -46,7 +46,7 @@ Use one of these options to verify COMMON has been redistributed to Windows work
 3. Select the *Federal Common Policy CA Redistribution Detection* entry, and click the **Results** tab.
 
 4. Review the analysis results. If COMMON was successfully redistributed to a Windows workstations and device, the *Has COMMON Been Redistributed?* column will present **True**, as pictured below. 
-![Sample Output]({{site.baseurl}}/img/bigfix-results.jpg){:style="width:70%;"}
+![Sample Output]({{site.baseurl}}/img/bigfix-results.jpg){:style="width:80%;"}
      
 #### Use LANDesk
 1. Open LANDesk (e.g., **Start** > **LANDesk Management** > **Desktop Manager**)
